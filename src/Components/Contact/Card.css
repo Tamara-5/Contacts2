@@ -1,0 +1,137 @@
+.card{
+    width: 400px;
+    height: 70px;
+    background-color: white;
+    margin: 5px 0 ;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.24);
+    display: flex;
+}
+.card:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
+
+}
+.cardData{
+    display: flex;
+}
+.cardData p{
+    padding-left: 15px;
+}
+.activcard{
+    width: 400px;
+    height: 70px;
+    background-color: white;
+    margin: 5px 0 ;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.24);
+    display: flex;
+}
+.NoUsers{
+    margin: 0 auto;
+    text-align: center;
+}
+.chechinput:checked{
+    display: flex;
+    align-items: center;
+    margin: auto 0;
+}
+.Contact{
+    width: 450px;
+    overflow: hidden;
+    height: 80vh;
+    overflow-y: scroll;
+}
+.search{
+    margin: 20px 0;
+    width: 370px;
+    height: 30px;
+    border: 1px solid #8e9094;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 30px;
+}
+.search:hover{
+    border-bottom: 2px solid #8e9094;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 50%;
+  }
+  
+  .container input {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    border-radius: 50%;
+    
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+    border-radius: 50%;
+
+  }
+  
+  .container input:checked ~ .checkmark {
+    background-color: #8e9094;
+    margin: 13px;
+    border-radius: 50%;
+
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+
+    display: none;
+  }
+  
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
