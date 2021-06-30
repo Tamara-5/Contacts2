@@ -1,0 +1,99 @@
+
+/* 2021 */
+
+.Tags{
+  margin-top: 15px;
+}
+.tegselement{
+    background-color: #ededed;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 15px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+.morebutton{
+    margin: auto;
+    display: flex;
+    border: none;
+    background: white;
+    font-size: 20px;
+}
+.morebutton:hover{
+    background-color: cornsilk;
+}
+
+.container1 {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 50%;
+  }
+  
+  .container1 input {
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    border-radius: 50%;
+    
+    width: 25px;
+    background-color: white;
+  }
+  
+  .container1:hover input ~ .checkmark1 {
+    background-color: #ccc;
+    border-radius: 50%;
+
+  }
+  
+  .container1 input:checked ~ .checkmark1 {
+    background-color: #03f8fc;
+    margin: 0;
+    border-radius: 50%;
+
+  }
+  
+  .checkmark1:after {
+    content: "";
+    position: absolute;
+
+    display: none;
+  }
+  
+  .container1 input:checked ~ .checkmark1:after {
+    display: block;
+  }
+  
+  .container1 .checkmark1:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

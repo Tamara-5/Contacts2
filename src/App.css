@@ -1,4 +1,6 @@
 .app{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin: auto;
+  width: 1200px;
 }

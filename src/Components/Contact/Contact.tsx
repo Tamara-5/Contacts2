@@ -5,10 +5,8 @@ import { ContactTypes } from '../../Types/ContactTypes';
 import ContactCard from './ContactCard';
 import Spinner from 'react-bootstrap/Spinner'
 import { useState } from 'react';
-import { useScrollBy } from "react-use-window-scroll";
 
 const Contact: React.FC = () => {
-  const scrollBy = useScrollBy();
   const dispatch=useDispatch()
   const users:any=useSelector<ContactTypes>((state)=>state)
   const [searc,serSearch]=useState('')
@@ -35,10 +33,16 @@ const Contact: React.FC = () => {
 
 
 const Scrol=(e:any)=>{
-    if (e.target.scrollTop + e.target.clientHeight === e.target.scrollHeight ) {
+
+    if (e.target.scrollTop + e.target.clientHeight === e.target.scrollHeight && e.target.scrollTop > 0 ) {
+        if(searc===""){
+          SetSearchData([])
+        }
             dispatch(GetContact());
           }
-  }
+  } 
+    
+
     return (
       <div className='Contact' onScroll={(e:any) =>Scrol(e)}>
           {users.contact.loading && 
@@ -59,7 +63,7 @@ const Scrol=(e:any)=>{
               return <ContactCard key={i} data={elm} />
             })
           }
-          {SearchData.length===0 && searc!=="" &&
+          {SearchData.length===0 && searc!=="" || users.contact.users.length===0 && 
               <h1 className="NoUsers">No users</h1>
           }
       </div>

@@ -1,4 +1,6 @@
 export default {
-    minSent:null,
-    maxSent:null
+   sent:{min:"",max:""},
+   Received:{min:"",max:""},
+   Tags:[],
+   slectTags:[],
 }

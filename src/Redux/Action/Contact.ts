@@ -16,6 +16,7 @@ const startGetContact=()=>{
 
 
 export const GetContact=()=>{
+    console.log('sss')
     let token=sessionStorage.getItem('token')
     return (dispatch:any)=>{
         dispatch(startGetContact())
@@ -39,8 +40,14 @@ export const Tegs=()=>{
             }
         })
         .then((e) => {
-            console.log(e)    
+            dispatch(endGetTegs(e.data.tags))
         });
+    }
+}
+const endGetTegs=(data:any)=>{
+    return {
+        type:"endGetTegs",
+        data,
     }
 }
 

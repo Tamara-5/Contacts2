@@ -1,9 +1,8 @@
 import Contact from "../State/Contact";
 
 function ContactReducer(state=Contact,action:any){
-    let temp ={...Contact}
-
-
+    let temp ={...state}
+    console.log(action)
     if(action.type==="SelectDiv"){
         
     }
@@ -13,7 +12,10 @@ function ContactReducer(state=Contact,action:any){
             // @ts-ignore
             temp.users.push(elm)
         })
-        console.log(action.data)
+        
+    }
+    if(action.type==="SaveData"){
+        temp.users=action.value
     }
    
     return temp
