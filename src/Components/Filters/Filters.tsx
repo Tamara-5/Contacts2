@@ -11,7 +11,6 @@ import Tegs from '../Filters/Tegs/Tags'
 
 const Filters:React.FC=()=>{
     const data:any=useSelector((state)=>state)
-
     const dispatch=useDispatch()
     const [MinMAxSend,setMinMAxSend]=useState({min:"",max:""})
     const [MinMAxReceived,setMinMAxReceived]=useState({min:"",max:""})
@@ -171,7 +170,6 @@ const Filters:React.FC=()=>{
             sentinfo=[...setinfotegs]
 
         }
-
         dispatch(SaveData(sentinfo))
         
     }

@@ -5,7 +5,7 @@ import Filters from './Components/Filters/Filters';
 const App:React.FC=()=> {
   return (
       <div className="app">
-        <div>
+        <div className="app1">
             <Filters /> 
         </div>    
         <Contact />

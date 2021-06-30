@@ -15,7 +15,7 @@ const ContactCard = (props: PropsTypes ) => {
         return setActive(!bool)
     }
     const users:any=useSelector<ContactTypes>((state)=>state)
-    return <div className={!active ||users.contact.select ?'card':"activcard"} onClick={()=>selectCard(active)}>
+    return <div className='card' onClick={()=>selectCard(active)}>
         <div>
             {active &&
                 <label className="container">
@@ -24,10 +24,10 @@ const ContactCard = (props: PropsTypes ) => {
                 </label>
             }
         </div>
-        <div>
-            <img />
-        </div>
         <div className="cardData">
+        <div >
+            <img className="contactimg" src={'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg'} />
+        </div>
             <p>{props.data.name}</p>
             <p>{props.data.phoneNumber}</p>
         </div>
