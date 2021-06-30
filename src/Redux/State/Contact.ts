@@ -2,5 +2,6 @@
 export default {
     users: [] ,
     loading:false,
-    select:false
+    select:false,
+    newUserData:[]
 }

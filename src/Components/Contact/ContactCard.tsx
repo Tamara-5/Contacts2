@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import "./Card.css"
 import { ContactTypes } from '../../Types/ContactTypes'
 import { useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ const ContactCard = (props: PropsTypes ) => {
         <div>
             {active &&
                 <label className="container">
-                    <input className="chechinput"  checked={active} type="checkbox" name="" id="" />
+                    <input className="chechinput" onChange={()=>{}} checked={active} type="checkbox" name="" id="" />
                     <span className="checkmark"></span>
                 </label>
             }

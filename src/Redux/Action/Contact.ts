@@ -1,6 +1,5 @@
 import axios from "axios"
 
-
 const endGetToken=(data:[])=>{
     return {
         type:"endGetToken",
@@ -13,10 +12,7 @@ const startGetContact=()=>{
     }
 }
 
-
-
 export const GetContact=()=>{
-    console.log('sss')
     let token=sessionStorage.getItem('token')
     return (dispatch:any)=>{
         dispatch(startGetContact())

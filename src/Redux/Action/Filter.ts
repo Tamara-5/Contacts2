@@ -11,7 +11,6 @@ export const SaveData =(value:Array<any>)=>{
     }
 }
 export const ReceivedMessinge=(value:object)=>{
-    console.log(value)
     return {
         type:"ReceivedMessinge",
         value,

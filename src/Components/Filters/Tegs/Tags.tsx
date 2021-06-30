@@ -8,7 +8,7 @@ const Tags:React.FC=()=>{
     const [isActive,setIsactive]=useState([])
     const dispatch=useDispatch()
     const moer=()=>{
-        if(count==5)
+        if(count===5)
         setCount(Tags.filters.Tags.length)
         else{
         setCount(5)
@@ -21,7 +21,6 @@ const Tags:React.FC=()=>{
              // @ts-ignore
             let index=temp.indexOf(i)
             temp.splice(index,1)
-            console.log(temp)
         }
         else{        
         // @ts-ignore
@@ -45,7 +44,7 @@ const Tags:React.FC=()=>{
                     {isActive.includes(elm.name)  && 
                         <label className="container1">
                             {/* @ts-ignore */}
-                        <input className="chechinput1"  checked={isActive.includes(elm.name)} type="checkbox" name="" id="" />
+                        <input className="chechinput1" onChange={()=>{}} checked={isActive.includes(elm.name)} type="checkbox"  id="" />
                         <span className="checkmark1"></span>
                         </label>
                     }

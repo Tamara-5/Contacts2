@@ -1,9 +1,10 @@
-import React, { useEffect, useLayoutEffect } from 'react'
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { contactToken, GetContact, SelectDiv, Tegs } from '../../Redux/Action/Contact';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { contactToken, GetContact, Tegs } from '../../Redux/Action/Contact';
 import { ContactTypes } from '../../Types/ContactTypes';
 import ContactCard from './ContactCard';
-import Spinner from 'react-bootstrap/Spinner'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useState } from 'react';
 
 const Contact: React.FC = () => {
@@ -20,6 +21,7 @@ const Contact: React.FC = () => {
             new_data.push(elm)
         }
       })
+      
       SetSearchData(new_data)
     return serSearch(value)
   }
@@ -31,7 +33,6 @@ const Contact: React.FC = () => {
     dispatch(Tegs())
   },[]);
 
-
 const Scrol=(e:any)=>{
 
     if (e.target.scrollTop + e.target.clientHeight === e.target.scrollHeight && e.target.scrollTop > 0 ) {
@@ -41,21 +42,17 @@ const Scrol=(e:any)=>{
             dispatch(GetContact());
           }
   } 
-    
-
+  
     return (
       <div className='Contact' onScroll={(e:any) =>Scrol(e)}>
-          {users.contact.loading && 
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
-          }
+
           {!users.contact.loading && 
             <div>
               <input placeholder="Search" className="search" value={searc} onChange={(e)=>SearchPeople(e.target.value)} />
             </div>
           }
-          { !users.loading && SearchData.length===0 &&searc==="" && users.contact.users.map((elm:ContactTypes,i:number)=>{
+          
+          { !users.loading &&users.contact.newUserData.length===0 && SearchData.length===0 &&searc==="" && (users.filters.Received.min==="" && users.filters.Received.max===""&& users.filters.sent.min==="" && users.filters.sent.max===""&&users.filters.slectTags.length===0) && users.contact.users.map((elm:ContactTypes,i:number)=>{
              return <ContactCard key={i} data={elm} />
           })}
           {SearchData.length!==0 &&
@@ -63,8 +60,10 @@ const Scrol=(e:any)=>{
               return <ContactCard key={i} data={elm} />
             })
           }
-          {SearchData.length===0 && searc!=="" || users.contact.users.length===0 && 
-              <h1 className="NoUsers">No users</h1>
+           {users.contact.newUserData.length!==0 && (users.filters.Received.min!=="" ||users.filters.Received.max!==""||users.filters.sent.min!=="" ||users.filters.sent.max!=="" || users.filters.slectTags.length!==0) &&
+            users.contact.newUserData.map((elm:any,i:number)=>{
+              return <ContactCard key={i} data={elm} />
+            })
           }
       </div>
     );
