@@ -9,8 +9,8 @@ export type ContactTypes={
     messagesSent:number,
     name:string,
     phoneNumber:string,
-    platformNames:[],
-    tags:[],
+    platformNames:Array<any>,
+    tags:Array<any>,
     type:string,
     updatedAt:string
 

@@ -1,10 +1,9 @@
 import  { useState } from 'react'
 import "./Card.css"
-import { ContactTypes } from '../../Types/ContactTypes'
-import { useSelector } from 'react-redux';
+import { dataTypes } from '../../Types/DataType';
 
 type PropsTypes = {
-    data: ContactTypes,
+    data: dataTypes,
     key: number,
 };
 
@@ -14,7 +13,6 @@ const ContactCard = (props: PropsTypes ) => {
     const selectCard=(bool:Boolean)=>{
         return setActive(!bool)
     }
-    const users:any=useSelector<ContactTypes>((state)=>state)
     return <div className='card' onClick={()=>selectCard(active)}>
         <div>
             {active &&

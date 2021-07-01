@@ -4,7 +4,7 @@ export const SentMessinge=(value:object)=>{
         value,
     }
 }
-export const SaveData =(value:Array<any>)=>{
+export const SaveData =(value:Array<object>)=>{
     return {
         type:"SaveData",
         value,
@@ -17,7 +17,7 @@ export const ReceivedMessinge=(value:object)=>{
     }
 }
 
-export const TegsSave=(value:any)=>{
+export const TegsSave=(value:Array<string>)=>{
     return {
         type:'TegsSave',
         value

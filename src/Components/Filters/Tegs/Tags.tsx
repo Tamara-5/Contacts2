@@ -1,11 +1,39 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { TegsSave } from '../../../Redux/Action/Filter'
+import { dataTypes } from '../../../Types/DataType'
 import "./Tags.css"
+
+type received={
+    min:string,
+    max:string
+}
+type Contact={
+    isActive:Array<string>
+    loading:boolean,
+    newUserData:Array<dataTypes>
+    select:boolean,
+    users:Array<dataTypes>
+}
+type Filters ={  
+    Received:received,
+    Tags:Array<Tags>,
+    sent:received,
+    slectTags:Array<string>
+}
+type PropsT = {
+    contact: Contact,
+    filters: Filters,
+  };
+
+type Tags={
+    name:string
+}
+
 const Tags:React.FC=()=>{
-    const Tags:any=useSelector((state)=>state)
+    const Tags=useSelector((state:PropsT)=>state)
     const [count,setCount]=useState(5)
-    const [isActive,setIsactive]=useState([])
+    const [isActive,setIsactive]=useState<Array<string>>([])
     const dispatch=useDispatch()
     const moer=()=>{
         if(count===5)
@@ -14,22 +42,19 @@ const Tags:React.FC=()=>{
         setCount(5)
         }
     }
-    const active=(i:any)=>{
+    const active=(i:string)=>{
         let temp=[...isActive]
-        // @ts-ignore
         if(temp.includes(i)){
-             // @ts-ignore
             let index=temp.indexOf(i)
             temp.splice(index,1)
         }
         else{        
-        // @ts-ignore
         temp.push(i)
     }   
        dispatch(TegsSave(temp))
        setIsactive(temp)
     }
-    let newTages:any=[]
+    let newTages=[]
     if(Tags.filters.Tags.length!==0)
     for(let i=0;i<count;i++){
         newTages.push(Tags.filters.Tags[i])
@@ -37,14 +62,12 @@ const Tags:React.FC=()=>{
 
     return <div className="Tags">
         <h4>Tags</h4>
-        {newTages.length!==0 && newTages.map((elm:any,i:number)=>{
+        {newTages.length!==0 && newTages.map((elm,i:number)=>{
             return <div onClick={()=>active(elm.name)} key={i} className="tegselement">
                   <p>{elm.name}</p>
-                            {/* @ts-ignore */}
                     {isActive.includes(elm.name)  && 
                         <label className="container1">
-                            {/* @ts-ignore */}
-                        <input className="chechinput1" onChange={()=>{}} checked={isActive.includes(elm.name)} type="checkbox"  id="" />
+                        <input className="chechinput1" onChange={()=>{}} checked={isActive.includes(elm.name)} type="checkbox"/>
                         <span className="checkmark1"></span>
                         </label>
                     }
